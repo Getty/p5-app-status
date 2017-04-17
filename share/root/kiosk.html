@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>App::Status Kiosk</title>
+  </head>
+  <body onload="checkIframeLoaded();">
+    <iframe id="app_status_kiosk_iframe" src="/dashboard.html" style="position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;">
+        Your browser doesn't support iframes
+    </iframe>
+  </body>
+  <script>
+
+  function checkIframeLoaded() {
+    var iframe = document.getElementById('app_status_kiosk_iframe');
+    var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
+    if (iframeDoc.readyState != 'complete') {
+      console.log(iframeDoc.readyState);
+      window.setTimeout('checkIframeLoaded();', 100);
+    }
+  }
+
+  </script>
+</html>

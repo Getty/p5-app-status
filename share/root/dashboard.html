@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>App::Status Dashboard</title>
+    <link href="/css/bootstrap-3.3.6.min.css" rel="stylesheet">
+    <link href="/css/dashboard-theme.min.css" rel="stylesheet">
+    <link href="/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="/css/dashboard.css" rel="stylesheet">
+  </head>
+  <body class="disconnected">
+    <div class="disconnectedtext">
+      <div class="blocking">
+        <div class="anim"></div>
+        <div id="disconnectedtext">App::Status not connected</div>
+      </div>
+    </div>
+    <div class="fullscreen" id="main">
+      <div>
+        <div id="clock" class="pull-right"></div>
+        <div id="pings">
+          <span class="ping" data-url="http://git.conflict.industries/img/favicon.png">
+            CI <span class="pingresult"></span>
+          </span>
+          <span class="ping" data-url="https://www.google.de/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png">
+            G <span class="pingresult"></span>
+          </span>
+          <span class="ping" data-url="https://reddit.com/favicon.ico">
+            R <span class="pingresult"></span>
+          </span>
+          <span class="ping" data-url="https://www.netflix.com/favicon.ico">
+            N <span class="pingresult"></span>
+          </span>
+          <span class="ping" data-url="https://github.com/favicon.ico">
+            GH <span class="pingresult"></span>
+          </span>
+        </div>
+      </div>
+      <div id="custom">
+      </div>
+    </div>
+    <script src="/js/jquery-1.12.0.min.js"></script>
+    <script src="/js/bootstrap-3.3.6.min.js"></script>
+    <script src="/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/js/handlebars-3.0.3.min.js"></script>
+    <script src="/js/moment-with-locales.min.js"></script>
+    <script src="/js/reconnecting-websocket.min.js"></script>
+    <script src="/js/ping.js"></script>
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>

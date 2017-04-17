@@ -1,0 +1,7 @@
+App-Status-*
+.build
+*.sqlite
+*.log
+*.CSV
+*.zip
+*.yaml
