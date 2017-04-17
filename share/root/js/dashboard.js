@@ -5,15 +5,16 @@ function AppStatusDashboard() {
   self.ws_connected = false;
   self.locale = 'de';
   self.time_format = 'dddd, MMMM Do YYYY, hh:mm:ss';
-
   self.reddit_filter = [
     'aww','funny','nba','interestingasfuck','overwatch','oldschoolcool',
     'blackpeopletwitter','sports','hockey','pokemongo','baseball',
     'mildlyinteresting','wholesomememes','thisismylifenow','leagueoflegends',
     'bikinibottomtwitter','adviceanimals','the_donald','youdontsurf',
-    'wtf','woahdude','kenm'
+    'wtf','woahdude','kenm','gifrecipes','perfecttiming','tinder','music',
+    'nonononoyes','pokemon','standupshots','pandr','shittyfoodporn',
+    'bettereveryloop','pics','gifs','peoplefuckingdying','leafs',
+    'natureismetal','oddlysatisfying','earthporn','unexpected'
   ];
-
   self.reddit_highlight = [
     'news','politics','europe','worldnews','esist','enoughtrumpspam',
     'starwars','videos','marchagainsttrump'
@@ -27,12 +28,11 @@ function AppStatusDashboard() {
     self.start_ping($(this).data('url'),$(this).find('.pingresult'));
   });
   self.check_rss();
-
 }
 
 AppStatusDashboard.prototype.check_rss = function(url,pingresult) {
   var self = this;
-  $.get('https://www.reddit.com/r/all/.rss?limit=100', function (data) {
+  $.get('https://www.reddit.com/r/all/.rss?limit=200', function (data) {
     $('#custom').empty();
     $(data).find("entry").each(function () { // or "item" or whatever suits your feed
       var el = $(this);
@@ -57,9 +57,9 @@ AppStatusDashboard.prototype.start_ping = function(url,pingresult) {
     ping(url).then(function(delta) {
       if (delta > 3) {
         if (delta > 500) {
-          pingresult.html('<span style="color:yellow">' + delta + 'ms</span>');
+          pingresult.html('<span style="color:yellow">' + delta + '</span>');
         } else {
-          pingresult.text(delta + 'ms');        
+          pingresult.text(delta);
         }
       }
       self.start_ping(url,pingresult);
@@ -83,11 +83,13 @@ AppStatusDashboard.prototype.s = function(data) {
 };
 
 AppStatusDashboard.prototype.disconnected = function(data) {
-  $('body').addClass('disconnected');
+  self.ws_connected = false;
+  $('#disconnected').show();
 };
 
 AppStatusDashboard.prototype.connected = function(data) {
-  $('body').removeClass('disconnected');
+  self.ws_connected = true;
+  $('#disconnected').hide();
 };
 
 AppStatusDashboard.prototype.connect_socket = function(){

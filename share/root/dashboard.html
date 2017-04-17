@@ -8,19 +8,16 @@
     <link href="/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <link href="/css/dashboard.css" rel="stylesheet">
   </head>
-  <body class="disconnected">
-    <div class="disconnectedtext">
-      <div class="blocking">
-        <div class="anim"></div>
-        <div id="disconnectedtext">App::Status not connected</div>
-      </div>
-    </div>
+  <body>
     <div class="fullscreen" id="main">
       <div>
         <div id="clock" class="pull-right"></div>
         <div id="pings">
           <span class="ping" data-url="http://git.conflict.industries/img/favicon.png">
             CI <span class="pingresult"></span>
+          </span>
+          <span class="ping" data-url="http://megador.stardestroyer.de/favicon.ico">
+            ME <span class="pingresult"></span>
           </span>
           <span class="ping" data-url="https://www.google.de/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png">
             G <span class="pingresult"></span>
@@ -34,6 +31,7 @@
           <span class="ping" data-url="https://github.com/favicon.ico">
             GH <span class="pingresult"></span>
           </span>
+          <span id="disconnected">WS not connected!</span>
         </div>
       </div>
       <div id="custom">
